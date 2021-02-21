@@ -1,49 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('base')
+@section('content')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <div>
+<div class="d-flex justify-content-center">
+    <div class="border p-3" style="width: 50%;">
         <form method="POST">
             @csrf
-            <label for="nama">Nama :</label>
-            <input type="text" name="nama" id="nama">
-            <br>
-            <label for="nik">NIK</label>
-            <input type="text" name="nik">
-            <br>
-            <label for="username">username :</label>
-            <input type="text" name="username" id="username">
-            <br>
-            <label for="password">password :</label>
-            <input type="text" name="password" id="password">
-            <br>
-            <label for="tgl_lahir">Tanggal Lahir</label>
-            <input type="date" name="tgl_lahir" id="tgl_lahir">
-            <br>
-            <label for="alamat">Alamat : </label>
-            <input type="text" name="alamat" id="alamat">
-            <br>
-            <label for="hp">No. HP :</label>
-            <input type="number" name="hp" id="hp">
-            <br>
-            <label for="jk">Jenis Kelamin</label>
-            <input type="radio" name="jenis_kelamin" value="1" id="laki-laki">
-            <label for="laki-laki">Laki-Laki</label>
-            <input type="radio" name="jenis_kelamin" value="2" id="perempuan">
-            <label for="perempuan">Perempuan</label>
-            <br>
-            <label for="email">Email :</label>
-            <input type="email" name="email" id="email">
-            <br>
-            <input type="submit" value="Simpan">
+            <div class="mb-3 row">
+                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nama" name="nama" required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="nik" class="col-sm-2 col-form-label">NIK</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nik" name="nik" required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="hp" class="col-sm-2 col-form-label">No. Handphone</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="hp" name="hp" required>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="tgl_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="alamat" name="alamat">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki-laki" value="1">
+                        <label class="form-check-label" for="laki-laki">
+                            Laki - Laki
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="0">
+                        <label class="form-check-label" for="perempuan">
+                            Perempuan
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mb-3 row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
         </form>
     </div>
-</body>
 
-</html>
+</div>
+@endsection

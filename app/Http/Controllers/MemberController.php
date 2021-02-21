@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 use App\Models\UserAja;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class MemberController extends Controller
 {
@@ -16,8 +17,7 @@ class MemberController extends Controller
         $user = new UserAja;
         $user->email = $r->request->get('email');
         $user->role = 'member';
-        $user->username = $r->request->get('username');
-        $user->password = $r->request->get('password');
+        $user->password = Hash::make($r->request->get('password'));
 
         $user->save();
         // dump($a);
@@ -31,6 +31,7 @@ class MemberController extends Controller
         $member->jenis_kelamin = $r->request->get('jenis_kelamin');
 
         $member->save();
+        return view('home');
     }
 
     public function index()

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\loginController;
 use App\Http\Controllers\MemberController;
 use App\Models\Member;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/pendaftaran', function () {
@@ -34,3 +35,11 @@ Route::post('/addEvent', [EventController::class, 'postEvent']);
 Route::delete('/deleteEvent/{id}', [EventController::class, 'deleteEvent']);
 Route::get('/editEvent/{id}', [EventController::class, 'editEvent']);
 Route::post('/updateEvent', [EventController::class, 'updateEvent']);
+Route::post('/login', [loginController::class, 'login']);
+Route::get('/login', function () {
+    return view('login');
+});
+Route::get('/member', function () {
+    return view('member.DasborMember');
+});
+Route::get('/logout', [loginController::class, 'logout']);
