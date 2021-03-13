@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\MemberDetailController;
 use App\Models\Member;
 use Illuminate\Support\Facades\Route;
 
@@ -39,7 +40,7 @@ Route::post('/login', [loginController::class, 'login']);
 Route::get('/login', function () {
     return view('login');
 });
-Route::get('/member', function () {
-    return view('member.DasborMember');
-});
 Route::get('/logout', [loginController::class, 'logout']);
+Route::get('/admin/member/detail/{id}', [MemberDetailController::class, 'detail']);
+Route::get('/member/editmember/{id}', [MemberController::class, 'edit']);
+Route::post('/member/editmember', [MemberController::class, 'update']);

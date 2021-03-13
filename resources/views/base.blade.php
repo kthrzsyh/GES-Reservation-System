@@ -22,6 +22,11 @@
                 </ul>
                 <div class="d-flex">
                     @if(auth()->check())
+                    @if(auth()->user()->role == 'admin')
+                    <a href="/admin" class="btn btn-outline-danger" style="margin-right: 20px;" type="submit">Dashboard</a>
+                    @else
+                    <a href="/member" class="btn btn-outline-danger" style="margin-right: 20px;" type="submit">Dashboard</a>
+                    @endif
                     <a href="/logout" class="btn btn-outline-success" style="margin-right: 20px;" type="submit">Logout</a>
                     @else
                     <a href="/login" class="btn btn-outline-success" style="margin-right: 20px;" type="submit">Login</a>
@@ -33,7 +38,6 @@
         </div>
     </nav>
     <div class="mb-4 mt-4">
-        {{auth()->user()}}
         @yield('content')
     </div>
 

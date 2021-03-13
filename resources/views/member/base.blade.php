@@ -113,7 +113,6 @@
                 </ul>
                 <div class="d-flex">
                     <a href="/logout" class="btn btn-outline-success" style="margin-right: 20px;" type="submit">Logout</a>
-
                 </div>
             </div>
         </div>

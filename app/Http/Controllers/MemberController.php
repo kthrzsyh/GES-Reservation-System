@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\User;
 use App\Models\UserAja;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class MemberController extends Controller
@@ -36,6 +38,34 @@ class MemberController extends Controller
 
     public function index()
     {
-        return view('member.DasborMember');
+        $member = User::where('id', Auth()->guard()->id())->with(['member'])->get();
+
+        return view('member.DasborMember')->with(['user' => $member[0]]);
+    }
+
+    public function edit($id)
+    {
+        $member = User::where('id', Auth()->guard()->id())->with(['member'])->get();
+        return view('member.EditMember')->with(['user' => $member[0]]);
+    }
+
+    public function update(Request $r)
+    {
+        $id = $r->request->get('id');
+        $user = User::where('id', $id)->update([
+            'hp' =>  $r->request->get('hp'),
+            // 'password' => Hash::make($r->request->get('password'))
+        ]);
+
+        $member = Member::where('id_user', $id);
+
+        $member->update([
+            'nama' => $r->request->get('nama'),
+            'nik' => $r->request->get('nik'),
+            'tgl_lahir' => $r->request->get('tgl_lahir'),
+            'alamat' => $r->request->get('alamat'),
+            'jenis_kelamin' => $r->request->get('jenis_kelamin')
+        ]);
+        return redirect('/member');
     }
 }

@@ -14,7 +14,13 @@ class loginController extends Controller
         if (Auth::attempt($credentials)) {
 
             // Authentication passed...
-            return redirect()->intended('/member');
+            // dump(Auth()->guard()->user()->role);
+            // die;
+            if (Auth()->guard()->user()->role == 'admin') {
+                return redirect()->intended('/admin');
+            } else {
+                return redirect()->intended('/member');
+            }
         }
     }
     public function logout()

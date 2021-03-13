@@ -11,6 +11,11 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
     protected $table = 'tb_user';
+
+    public function member()
+    {
+        return $this->hasOne(Member::class, 'id_user');
+    }
     /**
      * The attributes that are mass assignable.
      *
