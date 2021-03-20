@@ -30,12 +30,23 @@ Route::get('/pendaftaran', function () {
 Route::post('/pendaftaran', [MemberController::class, 'pendaftaran']);
 Route::get('/member', [MemberController::class, 'index']);
 Route::get('/admin', [AdminController::class, 'index']);
-Route::get('/event', [EventController::class, 'index']);
-Route::get('/addEvent', [EventController::class, 'addEvent']);
-Route::post('/addEvent', [EventController::class, 'postEvent']);
-Route::delete('/deleteEvent/{id}', [EventController::class, 'deleteEvent']);
-Route::get('/editEvent/{id}', [EventController::class, 'editEvent']);
-Route::post('/updateEvent', [EventController::class, 'updateEvent']);
+
+
+Route::prefix('/admin/event')->group(function () {
+    Route::get('/', [EventController::class, 'index']);
+    Route::get('/add', [EventController::class, 'addEvent']);
+    Route::post('/add', [EventController::class, 'postEvent']);
+    Route::delete('/delete/{id}', [EventController::class, 'deleteEvent']);
+    Route::get('/edit/{id}', [EventController::class, 'editEvent']);
+    Route::post('/update', [EventController::class, 'updateEvent']);
+});
+Route::prefix('/admin/member')->group(function () {
+    Route::get('/', [MemberController::class, 'list']);
+    Route::get('/add', [MemberController::class, 'addPage']);
+    Route::post('/add', [MemberController::class, 'add']);
+});
+
+
 Route::post('/login', [loginController::class, 'login']);
 Route::get('/login', function () {
     return view('login');

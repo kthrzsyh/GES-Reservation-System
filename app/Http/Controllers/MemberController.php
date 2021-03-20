@@ -68,4 +68,36 @@ class MemberController extends Controller
         ]);
         return redirect('/member');
     }
+
+    public function list()
+    {
+        $table = Member::with(['user'])->get();
+        // dump($table->toArray());
+        // die;
+        return view('admin.Member.index')->with(['member' => $table]);
+    }
+    public function addPage()
+    {
+        return view('admin.Member.add');
+    }
+    public function add(Request $r)
+    {
+        $member = new Member;
+        $user = new UserAja;
+        $user->email = $r->request->get('email');
+        $user->role = 'member';
+        $user->password = Hash::make($r->request->get('password'));
+
+        $user->save();
+        $member->id_user = $user->id;
+        $member->nama = $r->request->get('nama');
+        $member->nik = $r->request->get('nik');
+        $member->tgl_lahir = $r->request->get('tgl_lahir');
+        $member->alamat = $r->request->get('alamat');
+        $member->hp = $r->request->get('hp');
+        $member->jenis_kelamin = $r->request->get('jenis_kelamin');
+
+        $member->save();
+        return redirect('/admin/member');
+    }
 }

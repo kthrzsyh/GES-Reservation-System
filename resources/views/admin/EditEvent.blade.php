@@ -1,7 +1,7 @@
 @extends('admin.base')
 @section('content')
 <div>
-    <form method="POST" action="/updateEvent">
+    <form method="POST" action="/admin/event/update">
         @csrf
         <input type="hidden" name="id" value="{{$event->id}}">
         <label for="nama">Nama :</label>

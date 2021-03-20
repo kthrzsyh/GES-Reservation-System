@@ -1,7 +1,7 @@
 @extends('admin.base')
 @section('content')
 
-<a href="/addEvent">Tambah Event</a>
+<a href="/admin/event/add" class="btn btn-primary mb-1">Tambah Event</a>
 <table border="1" id="table">
     <tr>
         <th>Nama Event</th>
@@ -25,7 +25,7 @@
         <td>{{$eventAja->jam_selesai}}</td>
         <td>{{$eventAja->hari}}</td>
         <td><button class="btn btn-hapus" id="HapusData" data-id='{{$eventAja->id}}'>Hapus</button></td>
-        <td><a href="/editEvent/{{$eventAja->id}}" id="DetailData" data-id='{{$eventAja->id}}'>Detail</a></td>
+        <td><a href="/admin/event/edit/{{$eventAja->id}}" id="DetailData" data-id='{{$eventAja->id}}'>Detail</a></td>
     </tr>
     @endforeach
 </table>
@@ -38,27 +38,35 @@
     $(document).ready(function() {
         // $('#table').DataTable();
         $('.btn-hapus').on("click", function() {
+            console.log('test');
+
             let id = this.dataset.id;
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                type: "DELETE",
-                url: "/deleteEvent/" + id,
-                data: {
-                    '_token': '{{csrf_token()}}'
-                },
-                success: function(result) {
-                    console.log("Sukses Menghapus!")
-                    alert("Hapus Berhasil!");
-                    window.location.reload();
-                },
-                error: function(e) {
-                    console.log("Error" + e)
-                }
-            });
+            var isconfirm = confirm('Yakin Hapus Data?');
+            if (isconfirm) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    type: "DELETE",
+                    url: "/admin/event/delete/" + id,
+                    data: {
+                        '_token': '{{csrf_token()}}'
+                    },
+                    success: function(result) {
+                        console.log("Sukses Menghapus!")
+                        alert("Hapus Berhasil!");
+                        window.location.reload();
+                    },
+                    error: function(e) {
+                        console.log("Error" + e)
+                    }
+                });
+            }
+
+
             // alert("Hapus Berhasil dengan ID!" + id);
         })
     });
