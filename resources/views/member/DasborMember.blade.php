@@ -1,6 +1,6 @@
 @extends('member.base')
 @section('content')
-<div><a href="/member/editmember/{{$user->id}}" class="btn btn-primary">Edit</a></div>
+<div><a href="/member/edit/{{$user->id}}" class="btn btn-primary">Edit</a></div>
 <br>
 <div class="col" style="width: 100%;">
     <table class="table">

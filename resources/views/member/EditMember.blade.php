@@ -1,7 +1,7 @@
 @extends('member.base')
 @section('content')
 <div>
-    <form method="POST" action="/member/editmember">
+    <form method="POST" action="/member/edit">
         @csrf
         <div class="container" style="width: 500px;">
             <input type="hidden" name="id" value="{{$user->id}}">

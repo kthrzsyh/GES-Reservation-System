@@ -64,4 +64,9 @@ class EventController extends Controller
         $table = Event::all();
         return view('admin.PageEvent')->with(['event' => $table]);
     }
+
+    public function detailEvent($id){
+        $detailEvent = Event::findOrFail($id);
+        return view('detail')->with(['event' => $detailEvent]);
+    }
 }
