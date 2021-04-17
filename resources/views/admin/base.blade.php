@@ -133,6 +133,9 @@
                 <li>
                     <a href="/admin/member">Member</a>
                 </li>
+                <li>
+                    <a href="/admin/kursi">Kursi</a>
+                </li>
 
             </ul>
         </nav>
