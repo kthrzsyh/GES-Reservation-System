@@ -1,5 +1,6 @@
 @extends('base')
 @section('content')
+
 <div class="row">
     <div class="col col-lg-6">
         <div>
@@ -69,7 +70,6 @@
                 <h5>Silahkan Login Untuk Melakukan Booking!</h5>
             </div>
             @endif
-
         </div>
     </div>
 </div>

@@ -13,7 +13,7 @@
                 <th>Alamat</th>
                 <th>Nomor Handphone</th>
                 <th>jenis kelamin</th>
-                <th style="text-align: center;">Action</th>
+                <th style="text-align: center;" colspan="2">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +26,9 @@
                 <td>{{$memberAja->user->hp}}</td>
                 <td>{{$memberAja->jenis_kelamin == 0?'laki-laki' : 'perempuan'}}</td>
                 <td>
-                    <a class="btn" href="/admin/member/detail/{{$memberAja->id}}" id="DetailData" data-id='{{$memberAja->id}}'>Detail</a>
+
+                    <a class="btn btn-success" href="https://wa.me/{{$memberAja->user->hp}}">Send WA</a>
+                    <a class="btn btn-primary" href="/admin/member/detail/{{$memberAja->id}}" id="DetailData" data-id='{{$memberAja->id}}'>Detail</a>
                 </td>
 
             </tr>

@@ -22,15 +22,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'home']);
+Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/detail/{id}', [EventController::class, 'detailEvent']);
 Route::get('/pendaftaran', function () {
     return view('pendaftaran');
 });
 
 Route::post('/pendaftaran', [MemberController::class, 'pendaftaran']);
-
-
 
 Route::prefix('/admin')->group(function () {
     Route::get('/', [AdminController::class, 'index']);
@@ -70,4 +68,6 @@ Route::prefix('/member')->group(function () {
     Route::post('/edit', [MemberController::class, 'update']);
     Route::post('/reservasi', [ReservasiController::class, 'insert']);
 });
+
+Route::get('/test/{even}', [ReservasiController::class, 'cek']);
 Route::get('/logout', [loginController::class, 'logout']);

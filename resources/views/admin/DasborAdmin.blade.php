@@ -24,8 +24,8 @@
                 <td>{{$memberAja->hp}}</td>
                 <td>{{$memberAja->jenis_kelamin == 0?'laki-laki' : 'perempuan'}}</td>
                 <td>
-                    <button class="btn" id="HapusData" data-id='{{$memberAja->id}}'>Hapus</button>
-                    <a class="btn" href="/admin/member/detail/{{$memberAja->id}}" id="DetailData" data-id='{{$memberAja->id}}'>Detail</a>
+                    <button class="btn btn-primary" id="HapusData" data-id='{{$memberAja->id}}'>Hapus</button>
+                    <a class="btn btn-primary" href="/admin/member/detail/{{$memberAja->id}}" id="DetailData" data-id='{{$memberAja->id}}'>Detail</a>
                 </td>
 
             </tr>

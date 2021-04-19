@@ -17,23 +17,24 @@ class MemberController extends Controller
         // dump($r);
         // die;
         $user = new UserAja;
-        $user->email = $r->request->get('email');
-        $user->role = 'member';
-        $user->password = Hash::make($r->request->get('password'));
+        $user->email        = $r->request->get('email');
+        $user->hp           = $r->request->get('hp');
+        $user->role         = 'member';
+        $user->password     = Hash::make($r->request->get('password'));
 
         $user->save();
         // dump($a);
         // die;
-        $member->id_user = $user->id;
-        $member->nama = $r->request->get('nama');
-        $member->nik = $r->request->get('nik');
-        $member->tgl_lahir = $r->request->get('tgl_lahir');
-        $member->alamat = $r->request->get('alamat');
-        $member->hp = $r->request->get('hp');
-        $member->jenis_kelamin = $r->request->get('jenis_kelamin');
+        $member->id_user        = $user->id;
+        $member->nama           = $r->request->get('nama');
+        $member->nik            = $r->request->get('nik');
+        $member->tgl_lahir      = $r->request->get('tgl_lahir');
+        $member->alamat         = $r->request->get('alamat');
+
+        $member->jenis_kelamin  = $r->request->get('jenis_kelamin');
 
         $member->save();
-        return view('home');
+        return redirect()->route('home');
     }
 
     public function index()
