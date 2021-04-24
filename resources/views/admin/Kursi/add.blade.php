@@ -1,5 +1,10 @@
 @extends('admin.base')
 @section('content')
+@if(Session::has('pesan'))
+<div class="alert alert-danger" role="alert">
+    Kursi sudah terdaftar!
+</div>
+@endif
 <div class="d-flex justify-content-center">
     <div class="border p-3" style="width: 50%;">
         <form method="POST" action="/admin/kursi/insert">
@@ -9,7 +14,7 @@
                 <div class="col-sm-10">
                     <select name="code" id="code">
                         @foreach($range as $value)
-                        <option value="{{$value->code}}">{{$value->code}}</option>
+                        <option value="{{$value->id}}">{{$value->code}}</option>
                         @endforeach
                     </select>
                 </div>

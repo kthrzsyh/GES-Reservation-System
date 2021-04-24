@@ -25,18 +25,19 @@ class KursiController extends Controller
     }
     public function insert(Request $r)
     {
-        $is_exist = Kursi::where('code', $r->request->get('code'))->where('no_kursi', $r->request->get('no_kursi'))->first();
+        $is_exist = Kursi::where('code_id', $r->request->get('code'))->where('no_kursi', $r->request->get('no_kursi'))->first();
         // dump($is_exist);
         // die();
         if (!$is_exist) {
             $kursi = new Kursi;
-
-            $kursi->code = $r->request->get('code');
-            $kursi->no_kursi = $r->request->get('no_kursi');
-            $kursi->is_active = $r->request->get('is_active');
+            $kursi->code_id     = $r->request->get('code');
+            $kursi->no_kursi    = $r->request->get('no_kursi');
+            $kursi->is_active   = $r->request->get('is_active');
 
             $kursi->save();
             return redirect('/admin/kursi');
+        } else {
+            return redirect()->back()->with(['pesan' => 'sudah terdaftar']);
         }
 
         return redirect()->back();

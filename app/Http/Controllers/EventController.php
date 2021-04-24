@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\Member;
 use App\Models\Code;
 use App\Models\Kursi;
+use App\Models\Reservasi;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,11 +16,11 @@ class EventController extends Controller
     public function index()
     {
         $table = Event::all();
-        return view('admin.PageEvent')->with(['event' => $table]);
+        return view('admin.Event.PageEvent')->with(['event' => $table]);
     }
     public function addEvent()
     {
-        return view('admin.addEvent');
+        return view('admin.Event.addEvent');
     }
     public function postEvent(Request $r)
     {
@@ -36,20 +37,20 @@ class EventController extends Controller
 
         $event->save();
         $table = Event::all();
-        return view('admin.PageEvent')->with(['event' => $table]);
+        return view('admin.Event.PageEvent')->with(['event' => $table]);
     }
 
     public function deleteEvent($id)
     {
         Event::destroy($id);
         $table = Event::all();
-        return view('admin.PageEvent')->with(['event' => $table]);
+        return view('admin.Event.PageEvent')->with(['event' => $table]);
     }
 
     public function editEvent($id)
     {
         $event = Event::findOrFail($id);
-        return view('admin.editEvent')->with(['event' => $event]);
+        return view('admin.Event.editEvent')->with(['event' => $event]);
     }
 
     public function updateEvent(Request $r)
@@ -67,7 +68,7 @@ class EventController extends Controller
 
         $event->save();
         $table = Event::all();
-        return view('admin.PageEvent')->with(['event' => $table]);
+        return view('admin.Event.PageEvent')->with(['event' => $table]);
     }
 
     public function detailEvent($id)
@@ -89,7 +90,15 @@ class EventController extends Controller
             // dump($current_age);
             // die();
         }
-        $codeKursi = Kursi::with(['code'])->get();
+
+        $booked     = Reservasi::with(['kursi'])->where('id_even', $id)->get();
+        $tempBooked = [];
+        foreach ($booked as $value) {
+            array_push($tempBooked, $value->kursi->id);
+        }
+        $codeKursi  = Kursi::with(['code'])->whereNotIn('id', $tempBooked)->orderBy('code_id', 'ASC')->orderBy('no_kursi', 'ASC')->get();
+        // dump($codeKursi->toArray());
+        // die();
         // dump($detailMember);
         // die();
         $data = ['event' => $detailEvent, 'member' => $detailMember, 'code' => $codeKursi, 'age' => $age];

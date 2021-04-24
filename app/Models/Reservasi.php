@@ -9,4 +9,9 @@ class Reservasi extends Model
 {
     use HasFactory;
     protected $table = 'tb_reservasi';
+
+    public function kursi()
+    {
+        return $this->belongsTo(Code::class, 'id_kursi');
+    }
 }

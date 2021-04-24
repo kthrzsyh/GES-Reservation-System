@@ -1,6 +1,25 @@
 @extends('base')
 @section('content')
-
+@if(Session::has('message'))
+<div class="alert alert-danger" role="alert">
+    Anda Sudah Terdaftar!
+</div>
+@endif
+@if(Session::has('kursi'))
+<div class="alert alert-danger" role="alert">
+    Kursi yang anda pilih berbeda baris, mohon pilih baris yang sama!
+</div>
+@endif
+@if(Session::has('pesan'))
+<div class="alert alert-danger" role="alert">
+    maaf, kursi telah di pesan!
+</div>
+@endif
+@if(Session::has('error'))
+<div class="alert alert-danger" role="alert">
+    terjadi kesalahan !
+</div>
+@endif
 <div class="row">
     <div class="col col-lg-6">
         <div>
