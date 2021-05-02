@@ -1,3 +1,120 @@
+:root {
+    --primary_color: rgb(16, 13, 37);
+    --primary_color_hover: rgb(11, 9, 26);
+    --secondary_color: rgb(244, 183, 32);
+}
 .footer {
     color: ghostwhite !important;
+}
+
+.navbarku {
+    height: 75px;
+}
+
+.hero-page {
+    height: 600px;
+}
+.hero-page img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-page .title-hero {
+    font-size: 3rem;
+    color: var(--secondary_color);
+    font-weight: bold;
+}
+
+.hero-page .desc-hero {
+    font-size: 1rem;
+}
+
+.cardku {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px rgb(212, 212, 212);
+    transition: all 1s;
+}
+
+.cardku:hover {
+    box-shadow: 1px 1px 10px rgb(180, 180, 180);
+    background-color: #eaeaea;
+}
+
+.cardku img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.cardku .card-title {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 1px;
+}
+
+.cardku .card-text {
+    text-align: center;
+    margin-bottom: 1px;
+}
+
+.cardku .keterangan {
+    padding: 16px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+.bt-secondary {
+    all: unset;
+    border-radius: 20px;
+    padding: 16px;
+    color: var(--primary_color);
+    background-color: var(--secondary_color);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.bt-secondary:hover {
+    color: white;
+    background-color: var(--primary_color_hover);
+}
+.bt-primary {
+    all: unset;
+    text-align: center;
+    color: white;
+    background-color: var(--primary_color);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.bt-primary:hover {
+    color: white;
+    background-color: var(--primary_color_hover);
+}
+.bt-primary-navbar {
+    all: unset;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    color: white;
+    background-color: var(--primary_color);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.bt-primary-navbar:hover {
+    color: white;
+    background-color: var(--secondary_color);
+}
+.backgroundku {
+    background: rgb(16, 13, 37);
+    background: linear-gradient(
+        45deg,
+        rgba(16, 13, 37, 1) 0%,
+        rgba(91, 81, 157, 1) 46%,
+        rgba(209, 203, 255, 1)
+    );
+}
+
+.navbar.scrolled {
+    background-color: white !important;
+    transition: all 0.2s;
+    box-shadow: 0 4px 2px -2px rgb(180, 178, 178);
 }
