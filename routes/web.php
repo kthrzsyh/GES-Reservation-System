@@ -41,6 +41,8 @@ Route::prefix('/admin')->group(function () {
         Route::get('/edit/{id}', [EventController::class, 'editEvent']);
         Route::post('/update', [EventController::class, 'updateEvent']);
         Route::post('/detail', [EventController::class, 'detailEvent']);
+        Route::get('/EventReport', [EventController::class, 'EventReport']);
+        Route::get('/EventReportDetail/{id}', [EventController::class, 'EventReportDetail']);
     });
     Route::prefix('/member')->group(function () {
         Route::get('/', [MemberController::class, 'list']);

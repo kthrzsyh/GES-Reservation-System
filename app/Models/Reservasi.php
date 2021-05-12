@@ -14,4 +14,9 @@ class Reservasi extends Model
     {
         return $this->belongsTo(Code::class, 'id_kursi');
     }
+
+    public function chair()
+    {
+        return $this->belongsTo(Kursi::class, 'id_kursi');
+    }
 }

@@ -28,9 +28,13 @@ class MemberController extends Controller
         $member->id_user        = $user->id;
         $member->nama           = $r->request->get('nama');
         $member->nik            = $r->request->get('nik');
+        $member->tempat_lahir   = $r->request->get('tempat_lahir');
         $member->tgl_lahir      = $r->request->get('tgl_lahir');
-        $member->alamat         = $r->request->get('alamat');
-
+        $member->rt_rw          = $r->request->get('rt_rw');
+        $member->jalan          = $r->request->get('jalan');
+        $member->kel            = $r->request->get('kel');
+        $member->kec            = $r->request->get('kec');
+        $member->status         = $r->request->get('status');
         $member->jenis_kelamin  = $r->request->get('jenis_kelamin');
 
         $member->save();

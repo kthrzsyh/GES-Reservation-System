@@ -9,4 +9,9 @@ class Event extends Model
 {
     use HasFactory;
     protected $table = 'tb_even';
+
+    public function reservasi()
+    {
+        return $this->hasMany(Reservasi::class, 'id_even');
+    }
 }

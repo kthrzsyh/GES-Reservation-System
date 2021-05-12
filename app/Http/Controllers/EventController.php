@@ -104,4 +104,17 @@ class EventController extends Controller
         $data = ['event' => $detailEvent, 'member' => $detailMember, 'code' => $codeKursi, 'age' => $age];
         return view('detail')->with($data);
     }
+
+    public function EventReport()
+    {
+        $EventReport = Event::orderBy('id', 'DESC')->get();
+        return view('admin.Event.EventReport')->with(['data' => $EventReport]);
+    }
+
+    public function EventReportDetail($id)
+    {
+        $EventDetail = Event::with(['reservasi.chair.code'])->where('id', $id)->firstOrFail();
+        // return $EventDetail->toArray();
+        return view('admin.Event.EventReportDetail')->with(['data' => $EventDetail]);
+    }
 }

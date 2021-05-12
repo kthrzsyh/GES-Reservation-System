@@ -130,6 +130,10 @@
                 <li>
                     <a href="/admin/event">Event</a>
                 </li>
+
+                <li>
+                    <a href="/admin/event/EventReport">Event Report</a>
+                </li>
                 <li>
                     <a href="/admin/member">Member</a>
                 </li>
