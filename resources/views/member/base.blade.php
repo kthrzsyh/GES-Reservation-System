@@ -121,12 +121,12 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Shalom, {{$user->member->nama}}</h3>
+                <h3>Shalom, </h3>
             </div>
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="">Reservasi</a>
+                    <a href="/member/reservasimember">Reservasi</a>
                 </li>
 
             </ul>

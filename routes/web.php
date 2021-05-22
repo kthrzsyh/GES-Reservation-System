@@ -9,6 +9,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MemberDetailController;
 use App\Http\Controllers\ReservasiController;
 use App\Models\Member;
+use App\Models\Reservasi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,9 +41,10 @@ Route::prefix('/admin')->group(function () {
         Route::delete('/delete/{id}', [EventController::class, 'deleteEvent']);
         Route::get('/edit/{id}', [EventController::class, 'editEvent']);
         Route::post('/update', [EventController::class, 'updateEvent']);
-        Route::post('/detail', [EventController::class, 'detailEvent']);
+        Route::get('/detail/{id}', [EventController::class, 'detailEvent']);
         Route::get('/EventReport', [EventController::class, 'EventReport']);
         Route::get('/EventReportDetail/{id}', [EventController::class, 'EventReportDetail']);
+        Route::post('/absensi', [EventController::class, 'absensi']);
     });
     Route::prefix('/member')->group(function () {
         Route::get('/', [MemberController::class, 'list']);
@@ -69,6 +71,8 @@ Route::prefix('/member')->group(function () {
     Route::get('/edit/{id}', [MemberController::class, 'edit']);
     Route::post('/edit', [MemberController::class, 'update']);
     Route::post('/reservasi', [ReservasiController::class, 'insert']);
+    Route::get('/reservasimember', [MemberController::class, 'reservasi']);
+    Route::get('/reservasimember/{id}', [MemberController::class, 'detail_reservasi']);
 });
 
 Route::get('/test/{even}', [ReservasiController::class, 'cek']);

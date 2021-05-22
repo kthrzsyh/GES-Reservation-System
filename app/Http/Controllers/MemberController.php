@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\Reservasi;
 use App\Models\User;
 use App\Models\UserAja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class MemberController extends Controller
 {
@@ -104,5 +106,32 @@ class MemberController extends Controller
 
         $member->save();
         return redirect('/admin/member');
+    }
+
+    public function reservasi()
+    {
+        $member     = User::where('id', Auth()->guard()->id())->with(['member'])->get();
+        $id         = auth()->user()->id;
+
+        $event      = DB::table('tb_reservasi')
+            ->join('tb_even', 'tb_even.id', '=', 'tb_reservasi.id_even')
+            ->select('tb_reservasi.*', 'tb_even.nama')
+            ->where('id_user', $id)
+            ->groupBy('id_even')
+            ->get();
+        // dump($event);
+        // die();
+        // $reservasi  = Reservasi::with();
+        return view('member.ReservasiMember')->with(['event' => $event]);
+    }
+
+    public function detail_reservasi($id)
+    {
+        $event   = Reservasi::with(['event' => function ($q) use ($id) {
+            $q->where('id', '=', $id);
+        }, 'chair.code'])->where('id_user', '=', auth()->user()->id)->get();
+        return view('member.DetailReservasi')->with(['event' => $event]);
+        // dump($id_event);
+        // die();
     }
 }

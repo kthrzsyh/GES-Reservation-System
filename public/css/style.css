@@ -232,3 +232,53 @@ button[type="submit"]:hover {
 }
 
 /* Pendaftaran Page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.bodyku {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+}
+.containerku {
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+
+.containerku .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+.containerku .title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: var(--primary_color);
+}
+
+.containerku form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form .user-details .input-box {
+    margin: 20px 0 10px 0;
+    width: calc(100% / 2 -20px);
+}
+
+.user-details.input-box .details {
+    font-weight: 500;
+    margin-bottom: 5px;
+}

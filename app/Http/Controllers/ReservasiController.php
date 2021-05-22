@@ -62,21 +62,24 @@ class ReservasiController extends Controller
                         return redirect()->back()->with(['pesan' => 'maaf, kursi sudah di pesan']);
                     }
                     $reservasi = new Reservasi;
-                    $carbon     = auth()->id() . '-' . Carbon::now()->timestamp . '-' . $no_kursi[$i];
+                    $carbon                 = auth()->id() . '-' . Carbon::now()->timestamp . '-' . $no_kursi[$i];
+                    $iterations             = 1000;
+                    $salt                   = openssl_random_pseudo_bytes(16);
+                    $hash                   = hash_pbkdf2('sha256', $carbon, $salt, $iterations, 5);
                     $reservasi->id_even     = $id_even;
 
                     if ($i > 0) {
                         $reservasi->invitation      = auth()->id();
                         $reservasi->id_user         = null;
                     } else {
-                        $reservasi->invitation      = null;
+                        $reservasi->invitation      = auth()->id();
                         $reservasi->id_user         = auth()->id();
                     }
                     $reservasi->tgl_even        = $tgl_even;
                     $reservasi->id_kursi        = $no_kursi[$i];
                     $reservasi->nama            = $nama[$i];
                     $reservasi->usia            = $usia[$i];
-                    $reservasi->kode_booking    = $carbon;
+                    $reservasi->kode_booking    = $id_even . strtoupper($hash);
                     $reservasi->save();
                 }
                 DB::commit();

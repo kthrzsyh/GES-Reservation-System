@@ -19,4 +19,9 @@ class Reservasi extends Model
     {
         return $this->belongsTo(Kursi::class, 'id_kursi');
     }
+
+    public function event()
+    {
+        return $this->belongsTo(Event::class, 'id_even');
+    }
 }

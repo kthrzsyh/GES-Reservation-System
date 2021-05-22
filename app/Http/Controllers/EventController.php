@@ -117,4 +117,22 @@ class EventController extends Controller
         // return $EventDetail->toArray();
         return view('admin.Event.EventReportDetail')->with(['data' => $EventDetail]);
     }
+
+    public function absensi(Request $r)
+    {
+        try {
+            $id     = $r->request->get('id');
+            $reservasi  = Reservasi::find($id);
+            $reservasi->absen   = true;
+            $reservasi->save();
+
+            return response()->json([
+                'msg' => 'success'
+            ]);
+        } catch (\Exception $th) {
+            return response()->json([
+                'msg' => $th
+            ], 500);
+        }
+    }
 }
