@@ -2,6 +2,9 @@
     --primary_color: rgb(16, 13, 37);
     --primary_color_hover: rgb(11, 9, 26);
     --secondary_color: rgb(244, 183, 32);
+    --ready_color: rgb(3, 150, 28);
+    --block_color: rgb(230, 20, 20);
+    --use_color: rgb(78, 78, 78);
 }
 .footer {
     color: ghostwhite !important;
@@ -268,17 +271,105 @@ button[type="submit"]:hover {
     background: var(--primary_color);
 }
 
-.containerku form .user-details {
-    display: flex;
-    flex-wrap: wrap;
+.form_pendaftaran {
+    background-color: white;
+    border-radius: 30px;
+    padding: 30px;
+    margin-bottom: 50px;
 }
 
-form .user-details .input-box {
-    margin: 20px 0 10px 0;
-    width: calc(100% / 2 -20px);
-}
-
-.user-details.input-box .details {
+.container .title {
+    font-size: 25px;
     font-weight: 500;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.jarak_bawah {
     margin-bottom: 5px;
+}
+.kursi {
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: var(--ready_color);
+}
+.f16 {
+    font-size: 1.6rem;
+}
+.border-information {
+    border: 1px solid green;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.text-green {
+    color: green;
+}
+
+.border-reservasi {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* tombol */
+.tombol-minus {
+    all: unset;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    transition: all 200ms;
+}
+
+.tombol-minus:hover {
+    background-color: rgb(255, 42, 42);
+    color: white;
+}
+.tombol-plus {
+    all: unset;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+}
+.tombol-plus:hover {
+    background-color: rgb(41, 41, 241);
+    color: white;
+}
+
+.close-x {
+    all: unset;
+    cursor: pointer;
+    color: red;
+    font-size: 25px;
+}
+.margin-bottom-kecil {
+    margin-bottom: 10px;
+}
+
+.layout-kecil {
+    display: none;
+}
+@media only screen and (max-width: 600px) {
+    .form_pendaftaran {
+        width: 95%;
+    }
+    .margin-bottom-kecil {
+        margin-bottom: 30px;
+    }
+    .layout-besar {
+        display: none;
+    }
+    .layout-kecil {
+        display: block;
+    }
 }
