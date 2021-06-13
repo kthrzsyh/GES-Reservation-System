@@ -2,7 +2,7 @@
 @section('content')
 
 <div>
-    <table border="1" class="display" id="table-user">
+    <table class="table table-striped" id="table-user">
         <thead>
             <tr>
                 <th>Nama</th>
@@ -24,8 +24,8 @@
                 <td>{{$memberAja->hp}}</td>
                 <td>{{$memberAja->jenis_kelamin == 0?'laki-laki' : 'perempuan'}}</td>
                 <td>
-                    <button class="btn btn-primary" id="HapusData" data-id='{{$memberAja->id}}'>Hapus</button>
-                    <a class="btn btn-primary" href="/admin/member/detail/{{$memberAja->id}}" id="DetailData" data-id='{{$memberAja->id}}'>Detail</a>
+                    <a class="btn btn-danger btn-sm" id="HapusData" data-id='{{$memberAja->id}}'><i class="mdi mdi-delete" style="color: white;"></i></a>
+                    <a class="btn btn-primary btn-sm" href="/admin/member/detail/{{$memberAja->id}}" id="DetailData" data-id='{{$memberAja->id}}'><i class="mdi mdi-eye" style="color: white;"></i></a>
                 </td>
 
             </tr>
@@ -37,8 +37,8 @@
 </div>
 @endsection
 @section('js')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" type="text/javascript"></script>
-<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" type="text/javascript"></script> -->
 <script>
     $(document).ready(function() {
         $('#table-user').DataTable();

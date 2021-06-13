@@ -2,7 +2,11 @@
 @section('content')
 <div class="body_login">
     <div class="center">
-        <h1>Login</h1>
+        <div class="row">
+            <img src=" {{asset('/img/logo_ges.png')}}" alt="">
+            <p>Silahkan Login</p>
+        </div>
+
         <form action="" method="POST">
             @csrf
             <div class="txt_field">
@@ -16,6 +20,9 @@
                 <label for="password">Password</label>
             </div>
             <button type="submit">Login</button>
+            <div>
+                <p>Belum Punya Akun? Silahkan <a href="/pendaftaran" type="submit"> Daftar </a> Disini</p>
+            </div>
         </form>
     </div>
 </div>

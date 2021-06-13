@@ -5,156 +5,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!-- MDI -->
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    <!-- Sidebar CSS -->
+    <link href="/css/sidebar.css" type="text/css" rel="stylesheet">
+    <link href="/css/style.css" type="text/css" rel="stylesheet">
+    <link href="/font-awesome/css/all.min.css" type="text/css" rel="stylesheet">
     <title>Admin</title>
 
 </head>
 
 <body>
-    <style>
-        .wrapper {
-            display: flex;
-            align-items: stretch;
-        }
-
-        #sidebar {
-            min-width: 250px;
-            max-width: 250px;
-            min-height: 100vh;
-        }
-
-        #sidebar.active {
-            margin-left: -250px;
-        }
-
-        a[data-toggle="collapse"] {
-            position: relative;
-        }
-
-        .dropdown-toggle::after {
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-        }
-
-        #sidebar {
-            /* don't forget to add all the previously mentioned styles here too */
-            background: #7386D5;
-            color: #fff;
-            transition: all 0.3s;
-        }
-
-        #sidebar .sidebar-header {
-            padding: 20px;
-            background: #6d7fcc;
-        }
-
-        #sidebar ul.components {
-            padding: 20px 0;
-            border-bottom: 1px solid #47748b;
-        }
-
-        #sidebar ul p {
-            color: #fff;
-            padding: 10px;
-        }
-
-        #sidebar ul li a {
-            padding: 10px;
-            font-size: 1.1em;
-            display: block;
-        }
-
-        #sidebar ul li a:hover {
-            color: #7386D5;
-            background: #fff;
-        }
-
-        a,
-        a:hover,
-        a:focus {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        #sidebar ul li.active>a,
-        a[aria-expanded="true"] {
-            color: #fff;
-            background: #6d7fcc;
-        }
-
-        @media (max-width: 768px) {
-            #sidebar {
-                margin-left: -250px;
-            }
-
-            #sidebar.active {
-                margin-left: 0;
-            }
-        }
-    </style>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">GBI Emunah Solo Baru</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                </ul>
-                <div class="d-flex">
-                    <a href="/logout" class="btn btn-outline-success" style="margin-right: 20px;" type="submit">Logout</a>
+    <!-- Sidebar -->
+    <div class="page-wrapper chiller-theme toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="#">GBI Emunah Solo Baru</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </nav>
-    <div class="wrapper">
+                <div class="sidebar-header">
+                    <div class="user-info">
+                        <span class="user-name">
+                            <strong>Admin</strong>
+                        </span>
+                    </div>
+                </div>
+                <!-- sidebar-header  -->
 
-        <!-- Sidebar -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
-            </div>
-
-            <ul class="list-unstyled components">
-
-                <li>
-                    <a href="/admin/event">Event</a>
-                </li>
-
-                <li>
-                    <a href="/admin/event/EventReport">Event Report</a>
-                </li>
-                <li>
-                    <a href="/admin/member">Member</a>
-                </li>
-                <li>
-                    <a href="/admin/kursi">Kursi</a>
-                </li>
-
-            </ul>
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="">
+                            <a href="/admin/">
+                                <i class="mdi mdi-home" style="font-size: 20px;"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="mdi mdi-calendar" style="font-size: 20px;"></i>
+                                <span>Event</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="/admin/event">Event</a>
+                                    </li>
+                                    <li>
+                                        <a href="/admin/event/EventReport">Event Report</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="mdi mdi-account" style="font-size: 20px;"></i>
+                                <span>Member</span>
+                            </a>
+                            <div class=" sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="/admin/member">Member</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="mdi mdi-seat" style="font-size: 20px;"></i>
+                                <span>Kursi</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="/admin/kursi">Kursi</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
         </nav>
-        <div class="container">@yield('content')</div>
+        <!-- sidebar-wrapper  -->
+        <main class="page-content">
+            <div class="container-fluid">
+
+                <div class="container">@yield('content')</div>
+            </div>
+        </main>
+        <!-- page-content" -->
     </div>
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
-    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 
+    <script src="/js/sidebar.js"></script>
+    <script src="/font-awesome/js/all.min.js"></script>
     @yield('js')
 </body>
 
