@@ -51,7 +51,7 @@
             </div>
             <div class="form-group">
                 <label for="hari" class="jarak_bawah">Hari</label>
-                <select name="hari" id="hari">
+                <select name="hari" id="hari" class="form-control">
                     <option value="0">Senin</option>
                     <option value="1">Selasa</option>
                     <option value="2">Rabu</option>

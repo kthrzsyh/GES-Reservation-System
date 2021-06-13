@@ -1,27 +1,34 @@
 @extends('admin.base')
 @section('content')
-<table>
-    <tr>
-        <th>No</th>
-        <th>Nama</th>
-        <th>Kode Booking</th>
-        <th>Nomor Kursi</th>
-        <th>Absensi</th>
-    </tr>
-    @foreach($data->reservasi as $value)
-    <tr>
-        <td>{{$loop->index+1}}</td>
-        <td>{{$value->nama}}</td>
-        <td>{{$value->kode_booking}}</td>
-        <td>{{$value->chair->code->code}}{{$value->chair->no_kursi}}</td>
-        <td><a href="#" data-id="{{$value->id}}" id="btn_absen" class="btn_absen">{{$value->absen ? 'sudah absen' : 'belum absen'}}</a></td>
-    </tr>
-    @endforeach
+<h3>Page Absensi</h3>
+<table id="tb-event-report-detail" class="table table-striped" style="text-align: center;">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Kode Booking</th>
+            <th>Nomor Kursi</th>
+            <th>Absensi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($data->reservasi as $value)
+        <tr>
+            <td>{{$loop->index+1}}</td>
+            <td>{{$value->nama}}</td>
+            <td>{{$value->kode_booking}}</td>
+            <td>{{$value->chair->code->code}}{{$value->chair->no_kursi}}</td>
+            <td><a href="#" data-id="{{$value->id}}" id="btn_absen" class="btn_absen">{{$value->absen ? 'sudah absen' : 'belum absen'}}</a></td>
+        </tr>
+        @endforeach
+    </tbody>
+
 </table>
 @endsection
 @section('js')
 <script>
     $(document).ready(function() {
+        $('#tb-event-report-detail').DataTable();
         $('.btn_absen').on('click', function(e) {
             e.preventDefault();
             let id = this.dataset.id;

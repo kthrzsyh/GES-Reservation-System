@@ -1,7 +1,8 @@
 @extends('admin.base')
 @section('content')
-<div class="d-flex justify-content-center">
-    <div class="border p-3" style="width: 50%;">
+<div class="container form_pendaftaran">
+    <div class="title">Form Tambah Member</div>
+    <div class="p-3" style="border: 1px solid grey; border-radius: 10px">
         <form method="POST">
             @csrf
             <div class="mb-3 row">
@@ -17,7 +18,7 @@
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="hp" class="col-sm-2 col-form-label">No. Handphone</label>
+                <label for="hp" class="col-sm-2 col-form-label">Phone Number</label>
                 <div class="col-sm-10">
                     <input type="number" class="form-control" id="hp" name="hp" required>
                 </div>

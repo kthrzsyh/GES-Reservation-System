@@ -18,6 +18,9 @@
     <link href="/css/sidebar.css" type="text/css" rel="stylesheet">
     <link href="/css/style.css" type="text/css" rel="stylesheet">
     <link href="/font-awesome/css/all.min.css" type="text/css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <title>Admin</title>
 
 </head>
@@ -94,6 +97,12 @@
                                     </li>
                                 </ul>
                             </div>
+                        </li>
+                        <li class="">
+                            <a href="/logout">
+                                <i class="mdi mdi-logout" style="font-size: 20px;"></i>
+                                <span>Logout</span>
+                            </a>
                         </li>
         </nav>
         <!-- sidebar-wrapper  -->

@@ -4,7 +4,7 @@
 <div>
     <h3>List Member</h3>
     <a href="/admin/member/add" class="btn btn-primary mb-2">Tambah Member</a>
-    <table border="1" class="display" id="table-user">
+    <table class="table table-striped" id="table-user">
         <thead>
             <tr>
                 <th>Nama</th>
@@ -13,7 +13,7 @@
                 <th>Alamat</th>
                 <th>Nomor Handphone</th>
                 <th>jenis kelamin</th>
-                <th style="text-align: center;" colspan="2">Action</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -26,11 +26,9 @@
                 <td>{{$memberAja->user->hp}}</td>
                 <td>{{$memberAja->jenis_kelamin == 0?'laki-laki' : 'perempuan'}}</td>
                 <td>
-
-                    <a class="btn btn-success" href="https://wa.me/{{$memberAja->user->hp}}">Send WA</a>
-                    <a class="btn btn-primary" href="/admin/member/detail/{{$memberAja->id}}" id="DetailData" data-id='{{$memberAja->id}}'>Detail</a>
+                    <a class="btn btn-success btn-sm" href="https://wa.me/{{$memberAja->user->hp}}"><i class="mdi mdi-whatsapp"></i></a>
+                    <a class="btn btn-primary btn-sm" href="/admin/member/detail/{{$memberAja->id}}" id="DetailData" data-id='{{$memberAja->id}}'><i class="mdi mdi-eye"></i></a>
                 </td>
-
             </tr>
             @endforeach
         </tbody>
@@ -40,8 +38,7 @@
 </div>
 @endsection
 @section('js')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" type="text/javascript"></script>
-<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
 <script>
     $(document).ready(function() {
         $('#table-user').DataTable();
